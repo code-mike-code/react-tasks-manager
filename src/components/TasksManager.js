@@ -1,5 +1,13 @@
 import React from 'react';
 
+const singleTaskData = {
+    name: '',
+    id: null,
+    time: 0,
+    isRunning: false,
+    isDone: false,
+    isRemoved: false,
+}
 class TasksManager extends React.Component {
     state = {
         tasks: [],
@@ -11,11 +19,32 @@ class TasksManager extends React.Component {
         console.log( tasks)
     }
 
+    inputChangeHandler = (e) => {
+        const { name, value } = e.target
+        this.setState({
+            [name]: value,
+        })
+    }
+
+    createNewTask(taskName) {
+        return {
+            ...singleTaskData,
+            name: taskName,
+            time: 0,
+        }
+    }
+
+    submitHandler = (e) => {
+         e.preventDefault()
+
+         const newTask = this.createNewTask(this.state.newTask)
+    }
+
     render() {
         return (
             <>
             <h1 onClick={ this.onClick }>TasksManager</h1>
-            <form>
+            <form onSubmit={this.submitHandler}>
                 <input
                     name='taskName'
                     value={this.state.newTask}
@@ -26,7 +55,6 @@ class TasksManager extends React.Component {
             </form>
             </>
         )
-            
     }
 }
 
