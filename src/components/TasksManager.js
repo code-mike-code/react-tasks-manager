@@ -38,6 +38,14 @@ class TasksManager extends React.Component {
          e.preventDefault()
 
          const newTask = this.createNewTask(this.state.newTask)
+         const newTaskItem = this.addTaskToAPI(newTask)
+
+         if ( newTaskItem ) {
+            this.setState(state => ({
+                tasks: [...state.tasks, newTaskItem],
+                newTask: '',
+            }))
+         }
     }
 
     render() {
@@ -46,7 +54,7 @@ class TasksManager extends React.Component {
             <h1 onClick={ this.onClick }>TasksManager</h1>
             <form onSubmit={this.submitHandler}>
                 <input
-                    name='taskName'
+                    name='newTask'
                     value={this.state.newTask}
                     onChange={this.inputChangeHandler}
                     placeholder='New task name' 
@@ -56,6 +64,20 @@ class TasksManager extends React.Component {
             </>
         )
     }
+
+    addTaskToAPI = async (task) => {
+        const response = await fetch('http://localhost:3005/tasks', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(task)
+        })
+        const data = await response.json()
+        console.log(data)
+        return data;
+    }
+
 }
 
 export default TasksManager;
