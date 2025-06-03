@@ -34,11 +34,11 @@ class TasksManager extends React.Component {
         }
     }
 
-    submitHandler = (e) => {
+    submitHandler = async (e) => {
          e.preventDefault()
 
          const newTask = this.createNewTask(this.state.newTask)
-         const newTaskItem = this.addTaskToAPI(newTask)
+         const newTaskItem = await this.addTaskToAPI(newTask)
 
          if ( newTaskItem ) {
             this.setState(state => ({
@@ -66,7 +66,7 @@ class TasksManager extends React.Component {
     }
 
     addTaskToAPI = async (task) => {
-        const response = await fetch('http://localhost:3005/tasks', {
+        const response = await fetch('http://localhost:3005/data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -76,6 +76,17 @@ class TasksManager extends React.Component {
         const data = await response.json()
         console.log(data)
         return data;
+    }
+
+    componentDidMount() {
+        this.fetchTasks()
+    }
+
+    fetchTasks = async () => {
+        const response = await fetch('http://localhost:3005/data')
+        const tasks = await response.json()
+        console.log(tasks);
+        this.setState({ tasks })
     }
 
 }
