@@ -66,11 +66,11 @@ class TasksManager extends React.Component {
             <div>
                 {tasks.map(task => (
                     <section>
-                        <header>{ task.name }, 00:00:00</header>
+                        <header>{ task.name }, { this.convertSecondsToTime(task.time) }</header>
                         <footer>
-                            <button>start/stop</button>
+                            <button onClick={() => this.startStopHandler(task.id)}>{ task.isRunning ? 'stop' : 'start' }</button>
                             <button>finished</button>
-                            <button disabled="true">delate</button>
+                            <button disabled={!task.isDone}>delate</button>
                         </footer>
                     </section>
                 ))}
@@ -115,6 +115,35 @@ class TasksManager extends React.Component {
         })
     }
 
+    startStopHandler = async (id) => {
+        const taskToUpdate = this.state.tasks.find(task => task.id === id)
+
+        const updatedTask = {
+            ...taskToUpdate,
+            isRunning: !taskToUpdate.isRunning,
+        }
+
+        const response = await fetch(`http://localhost:3005/data/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedTask)
+        })
+        
+        if (response.ok) {
+            this.setState(state => ({
+                tasks: state.tasks.map(task => {
+                    if (task.id === id) {
+                        return updatedTask
+                    }
+                    return task
+                })
+            }))
+        } 
+    }
+    
+
     convertSecondsToTime(seconds) {
         const hours = Math.floor(seconds / 3600)
         const minutes = Math.floor((seconds - (hours * 3600)) / 60)
@@ -128,6 +157,10 @@ class TasksManager extends React.Component {
         const tasks = await response.json()
         console.log(tasks);
         this.setState({ tasks })
+    }
+
+    taskFinishedHandler = async () => {
+        
     }
 
 }

@@ -3,7 +3,8 @@
     {
       "id": 1,
       "firstName": "Jan",
-      "lastName": "Kowalski"
+      "lastName": "Kowalski",
+      "isRunning": false
     },
     {
       "name": "task nr 1",
