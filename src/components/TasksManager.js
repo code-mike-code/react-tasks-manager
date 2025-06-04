@@ -99,6 +99,10 @@ class TasksManager extends React.Component {
         }, 1000)
     }
 
+    componentWillUnmount() {
+        clearInterval(this.intervalId)
+    }
+
     incrementTime(id) {
         this.setState(state => {
             const newTasks = state.tasks.map(task => {
@@ -109,6 +113,14 @@ class TasksManager extends React.Component {
             })
             return { tasks: newTasks }
         })
+    }
+
+    convertSecondsToTime(seconds) {
+        const hours = Math.floor(seconds / 3600)
+        const minutes = Math.floor((seconds - (hours * 3600)) / 60)
+        const sec = seconds - (hours * 3600) - (minutes * 60)
+
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`
     }
 
     fetchTasks = async () => {
