@@ -193,7 +193,7 @@ class TasksManager extends React.Component {
                     return task
                 })
                 return { 
-                    task: updatedTasks.sort(( task1, task2 ) => {
+                    tasks: updatedTasks.sort(( task1, task2 ) => {
                         if (task1.isDone === task2.isDone) return 0;
                         if (task1.isDone) return 1;
                         return -1;
