@@ -61,6 +61,19 @@ class TasksManager extends React.Component {
                 />
                 <button type='submit'>Add task</button>
             </form>
+
+            <div>
+                {tasks.map(task => (
+                    <section>
+                        <header>Task number 1, 00:00:00</header>
+                        <footer>
+                            <button>start/stop</button>
+                            <button>finished</button>
+                            <button disabled="true">delate</button>
+                        </footer>
+                    </section>
+                ))}
+            </div>
             </>
         )
     }
