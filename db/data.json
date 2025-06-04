@@ -52,6 +52,22 @@
       "isRunning": false,
       "isDone": false,
       "isRemoved": false
+    },
+    {
+      "name": "task nr 1",
+      "id": 8,
+      "time": 0,
+      "isRunning": false,
+      "isDone": false,
+      "isRemoved": false
+    },
+    {
+      "name": "task nr 5",
+      "id": 9,
+      "time": 0,
+      "isRunning": false,
+      "isDone": false,
+      "isRemoved": false
     }
   ]
 }

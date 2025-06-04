@@ -49,6 +49,7 @@ class TasksManager extends React.Component {
     }
 
     render() {
+        const { tasks } = this.state
         return (
             <>
             <h1 onClick={ this.onClick }>TasksManager</h1>
@@ -65,7 +66,7 @@ class TasksManager extends React.Component {
             <div>
                 {tasks.map(task => (
                     <section>
-                        <header>Task number 1, 00:00:00</header>
+                        <header>{ task.name }, 00:00:00</header>
                         <footer>
                             <button>start/stop</button>
                             <button>finished</button>
@@ -93,6 +94,21 @@ class TasksManager extends React.Component {
 
     componentDidMount() {
         this.fetchTasks()
+        this.intervalId = setInterval(() => {
+            this.incrementTime()
+        }, 1000)
+    }
+
+    incrementTime(id) {
+        this.setState(state => {
+            const newTasks = state.tasks.map(task => {
+                if (task.id === id) {
+                    return {...task, time: task.time + 1}
+                }
+                return task
+            })
+            return { tasks: newTasks }
+        })
     }
 
     fetchTasks = async () => {
