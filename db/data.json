@@ -4,14 +4,15 @@
       "id": 1,
       "firstName": "Jan",
       "lastName": "Kowalski",
-      "isRunning": false
+      "isRunning": false,
+      "isDone": true
     },
     {
       "name": "task nr 1",
       "id": 2,
       "time": 0,
       "isRunning": false,
-      "isDone": false,
+      "isDone": true,
       "isRemoved": false
     },
     {
@@ -19,7 +20,7 @@
       "id": 3,
       "time": 0,
       "isRunning": false,
-      "isDone": false,
+      "isDone": true,
       "isRemoved": false
     },
     {
@@ -27,7 +28,7 @@
       "id": 4,
       "time": 0,
       "isRunning": false,
-      "isDone": false,
+      "isDone": true,
       "isRemoved": false
     },
     {
@@ -35,7 +36,7 @@
       "id": 5,
       "time": 0,
       "isRunning": false,
-      "isDone": false,
+      "isDone": true,
       "isRemoved": false
     },
     {
@@ -43,7 +44,7 @@
       "id": 6,
       "time": 0,
       "isRunning": false,
-      "isDone": false,
+      "isDone": true,
       "isRemoved": false
     },
     {
@@ -51,13 +52,13 @@
       "id": 7,
       "time": 0,
       "isRunning": false,
-      "isDone": false,
+      "isDone": true,
       "isRemoved": false
     },
     {
       "name": "task nr 1",
       "id": 8,
-      "time": 0,
+      "time": 5,
       "isRunning": false,
       "isDone": false,
       "isRemoved": false
@@ -66,7 +67,7 @@
       "name": "task nr 5",
       "id": 9,
       "time": 0,
-      "isRunning": false,
+      "isRunning": true,
       "isDone": false,
       "isRemoved": false
     }

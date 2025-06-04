@@ -68,8 +68,16 @@ class TasksManager extends React.Component {
                     <section>
                         <header>{ task.name }, { this.convertSecondsToTime(task.time) }</header>
                         <footer>
-                            <button onClick={() => this.startStopHandler(task.id)}>{ task.isRunning ? 'stop' : 'start' }</button>
-                            <button>finished</button>
+                            <button 
+                                onClick={() => this.startStopHandler(task.id)}
+                                disabled={task.isDone}
+                            >
+                                { task.isRunning ? 'stop' : 'start' }</button>
+                            <button 
+                                onClick={() => this.taskFinishedHandler(task.id)}
+                                disabled={task.isDone}
+                            >
+                                finished</button>
                             <button disabled={!task.isDone}>delate</button>
                         </footer>
                     </section>
@@ -103,10 +111,10 @@ class TasksManager extends React.Component {
         clearInterval(this.intervalId)
     }
 
-    incrementTime(id) {
+    incrementTime() {
         this.setState(state => {
             const newTasks = state.tasks.map(task => {
-                if (task.id === id) {
+                if (task.isRunning) {
                     return {...task, time: task.time + 1}
                 }
                 return task
@@ -159,8 +167,39 @@ class TasksManager extends React.Component {
         this.setState({ tasks })
     }
 
-    taskFinishedHandler = async () => {
-        
+    taskFinishedHandler = async (id) => {
+        const taskToUpdate = this.state.tasks.find(task => task.id === id)
+
+        const updatedTask = {
+            ...taskToUpdate,
+            isDone: true,
+            isRunning: false,
+        }
+
+        const response = await fetch(`http://localhost:3005/data/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedTask)
+        })
+
+        if (response.ok) {
+            this.setState(state => {
+                const updatedTasks = state.tasks.map(task => {
+                    if (task.id === id) {
+                        return updatedTask
+                    }
+                    return task
+                })
+                return { 
+                    task: updatedTasks.sort(( task1, task2 ) => {
+                        if (task1.isDone === task2.isDone) return 0;
+                        if (task1.isDone) return 1;
+                        return -1;
+                })}
+            })
+        }
     }
 
 }
