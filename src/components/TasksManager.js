@@ -50,6 +50,8 @@ class TasksManager extends React.Component {
 
     render() {
         const { tasks } = this.state
+        const visibleTasks = tasks.filter(task => !task.isRemoved)
+
         return (
             <>
             <h1 onClick={ this.onClick }>TasksManager</h1>
@@ -64,7 +66,7 @@ class TasksManager extends React.Component {
             </form>
 
             <div>
-                {tasks.map(task => (
+                {visibleTasks.map(task => (
                     <section>
                         <header>{ task.name }, { this.convertSecondsToTime(task.time) }</header>
                         <footer>
@@ -78,7 +80,11 @@ class TasksManager extends React.Component {
                                 disabled={task.isDone}
                             >
                                 finished</button>
-                            <button disabled={!task.isDone}>delate</button>
+                            <button 
+                                onClick={() => this.taskRemoveHandler(task.id)}
+                                disabled={!task.isDone}
+                            >
+                                delate</button>
                         </footer>
                     </section>
                 ))}
@@ -199,6 +205,35 @@ class TasksManager extends React.Component {
                         return -1;
                 })}
             })
+        }
+    }
+
+    taskRemoveHandler = async (id) => {
+        const taskToUpdate = this.state.tasks.find(task => task.id === id)
+
+        const updatedTask = {
+            ...taskToUpdate,
+            isRemoved: true,
+           
+        }
+
+        const response = await fetch(`http://localhost:3005/data/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedTask)
+        })
+
+        if (response.ok) {
+            this.setState(state => ({
+                tasks: state.tasks.map(task => {
+                    if (task.id === id) {
+                        return updatedTask
+                    }
+                    return task
+                })
+            }))
         }
     }
 

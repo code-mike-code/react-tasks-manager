@@ -5,7 +5,8 @@
       "firstName": "Jan",
       "lastName": "Kowalski",
       "isRunning": false,
-      "isDone": true
+      "isDone": true,
+      "isRemoved": true
     },
     {
       "name": "task nr 1",
@@ -13,7 +14,7 @@
       "time": 0,
       "isRunning": false,
       "isDone": true,
-      "isRemoved": false
+      "isRemoved": true
     },
     {
       "name": "task nr 2",
@@ -21,7 +22,7 @@
       "time": 0,
       "isRunning": false,
       "isDone": true,
-      "isRemoved": false
+      "isRemoved": true
     },
     {
       "name": "task nr 1",
@@ -29,7 +30,7 @@
       "time": 0,
       "isRunning": false,
       "isDone": true,
-      "isRemoved": false
+      "isRemoved": true
     },
     {
       "name": "task nr 1",
@@ -37,7 +38,7 @@
       "time": 0,
       "isRunning": false,
       "isDone": true,
-      "isRemoved": false
+      "isRemoved": true
     },
     {
       "name": "task nr 3",
@@ -45,7 +46,7 @@
       "time": 0,
       "isRunning": false,
       "isDone": true,
-      "isRemoved": false
+      "isRemoved": true
     },
     {
       "name": "task nr 4",
@@ -53,7 +54,7 @@
       "time": 0,
       "isRunning": false,
       "isDone": true,
-      "isRemoved": false
+      "isRemoved": true
     },
     {
       "name": "task nr 1",
@@ -61,7 +62,7 @@
       "time": 16,
       "isRunning": false,
       "isDone": true,
-      "isRemoved": false
+      "isRemoved": true
     },
     {
       "name": "task nr 5",
@@ -69,7 +70,7 @@
       "time": 208,
       "isRunning": false,
       "isDone": true,
-      "isRemoved": false
+      "isRemoved": true
     },
     {
       "name": "task nr 6",
@@ -77,7 +78,7 @@
       "time": 3,
       "isRunning": false,
       "isDone": true,
-      "isRemoved": false
+      "isRemoved": true
     },
     {
       "name": "task nr 7",
@@ -85,7 +86,7 @@
       "time": 0,
       "isRunning": false,
       "isDone": true,
-      "isRemoved": false
+      "isRemoved": true
     },
     {
       "name": "task nr 8",
@@ -93,7 +94,7 @@
       "time": 0,
       "isRunning": false,
       "isDone": true,
-      "isRemoved": false
+      "isRemoved": true
     },
     {
       "name": "task nr 10",
@@ -101,15 +102,15 @@
       "time": 2,
       "isRunning": false,
       "isDone": true,
-      "isRemoved": false
+      "isRemoved": true
     },
     {
       "name": "task nr 11",
       "id": 14,
-      "time": 3,
+      "time": 7,
       "isRunning": false,
-      "isDone": false,
-      "isRemoved": false
+      "isDone": true,
+      "isRemoved": true
     },
     {
       "name": "task nr 12",
@@ -117,7 +118,7 @@
       "time": 6,
       "isRunning": false,
       "isDone": true,
-      "isRemoved": false
+      "isRemoved": true
     },
     {
       "name": "task nr 13",
@@ -125,13 +126,61 @@
       "time": 3,
       "isRunning": false,
       "isDone": true,
-      "isRemoved": false
+      "isRemoved": true
     },
     {
       "name": "task nr 14",
       "id": 17,
+      "time": 6,
+      "isRunning": false,
+      "isDone": true,
+      "isRemoved": true
+    },
+    {
+      "name": "task nr 1",
+      "id": 18,
       "time": 4,
       "isRunning": false,
+      "isDone": true,
+      "isRemoved": true
+    },
+    {
+      "name": "task nr 2",
+      "id": 19,
+      "time": 8,
+      "isRunning": true,
+      "isDone": false,
+      "isRemoved": false
+    },
+    {
+      "name": "task nr 3",
+      "id": 20,
+      "time": 0,
+      "isRunning": true,
+      "isDone": false,
+      "isRemoved": false
+    },
+    {
+      "name": "task nr 4",
+      "id": 21,
+      "time": 0,
+      "isRunning": true,
+      "isDone": false,
+      "isRemoved": false
+    },
+    {
+      "name": "task nr 5",
+      "id": 22,
+      "time": 0,
+      "isRunning": true,
+      "isDone": false,
+      "isRemoved": false
+    },
+    {
+      "name": "task nr 6",
+      "id": 23,
+      "time": 0,
+      "isRunning": true,
       "isDone": false,
       "isRemoved": false
     }
