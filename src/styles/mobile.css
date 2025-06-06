@@ -1,0 +1,14 @@
+@media (max-width: 576px) {
+    .tasks-manager__form {
+        flex-direction: column;
+    }
+    
+    .task__footer {
+        flex-direction: column;
+    }
+    
+    .tasks-manager__container {
+        margin: 1rem;
+        padding: 0.8rem;
+    }
+}

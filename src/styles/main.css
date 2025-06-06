@@ -1,3 +1,131 @@
+:root {
+    /* colors */
+    --color-body-background: #dcdcdc;
+    --color-primary: #4facfe;
+    --color-secondary: #00f2fe;
+    --color-background: #1a1a1a;
+    --color-surface: #2a2a2a;
+    --color-text: #ffffff;
+    --color-bgc-button: #333333;
+    --color-disabled-button: #444444;
+    --color-border: #4facfe;
+    
+    /* Font sizes  */
+    --font-size-title: clamp(1.8rem, 4vw, 2.5rem);
+    --font-size-text: clamp(0.875rem, 2vw, 1rem);
+    --font-size-time: clamp(0.8rem, 1.5vw, 1.2rem);
+}
+
+
 body {
-    background: #dcdcdc;
+    background: var(--color-body-background);
+    font-family: "Inter", sans-serif;
+}
+
+.tasks-manager__container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--color-background);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    color: var(--color-text);
+}
+
+.tasks-manager__title {
+    font-size: var(--font-size-title);
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.tasks-manager__form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tasks-manager__input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: 2px solid var(--color-border);
+    border-radius: 12px;
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: var(--font-size-text);
+}
+
+.tasks-manager__input:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(79, 172, 254, 0.3);
+    border-color: #00f2fe;
+}
+
+.tasks-manager__button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    background: var(--color-primary);
+    color: var(--color-text);
+    font-size: var(--font-size-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tasks-manager__button:hover {
+    background: var(--color-secondary);
+    transform: translateY(-2px);
+}
+
+.task {
+    background: var(--color-surface);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--color-primary);
+}
+
+.task__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: var(--font-size-text);
+}
+
+.task__time {
+    font-family: "Share Tech Mono", monospace;
+    background: var(--color-background);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    color: var(--color-primary);
+    font-size: var(--font-size-time);
+}
+
+.task__footer {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.task__button {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--color-bgc-button);
+    color: var(--color-text);
+}
+
+.task__button:hover:not(:disabled) {
+    background: var(--color-primary);
+}
+
+.task__button:disabled {
+    background: var(--color-disabled-button);
+    cursor: not-allowed;
+    opacity: 0.4;
 }

@@ -1,4 +1,6 @@
 import React from 'react';
+import '../styles/main.css';
+import '../styles/mobile.css';
 
 const singleTaskData = {
     name: '',
@@ -53,34 +55,41 @@ class TasksManager extends React.Component {
         const visibleTasks = tasks.filter(task => !task.isRemoved)
 
         return (
-            <>
-            <h1 onClick={ this.onClick }>TasksManager</h1>
-            <form onSubmit={this.submitHandler}>
+            <div className='tasks-manager__container'>
+            <h1 className='tasks-manager__title' onClick={ this.onClick }>Tasks Manager</h1>
+            <form className='tasks-manager__form' onSubmit={this.submitHandler}>
                 <input
+                    className='tasks-manager__input'
                     name='newTask'
                     value={this.state.newTask}
                     onChange={this.inputChangeHandler}
                     placeholder='New task name' 
                 />
-                <button type='submit'>Add task</button>
+                <button className='tasks-manager__button' type='submit'>Add task</button>
             </form>
 
             <div>
                 {visibleTasks.map(task => (
-                    <section>
-                        <header>{ task.name }, { this.convertSecondsToTime(task.time) }</header>
-                        <footer>
+                    <section className='task'>
+                        <header className='task__header'>
+                            <span>{ task.name }</span>
+                            <span className='task__time'>{ this.convertSecondsToTime(task.time) }</span>
+                        </header>
+                        <footer className='task__footer'>
                             <button 
+                                className='task__button'
                                 onClick={() => this.startStopHandler(task.id)}
                                 disabled={task.isDone}
                             >
                                 { task.isRunning ? 'stop' : 'start' }</button>
                             <button 
+                                className='task__button'
                                 onClick={() => this.taskFinishedHandler(task.id)}
                                 disabled={task.isDone}
                             >
                                 finished</button>
                             <button 
+                                className='task__button'
                                 onClick={() => this.taskRemoveHandler(task.id)}
                                 disabled={!task.isDone}
                             >
@@ -89,7 +98,7 @@ class TasksManager extends React.Component {
                     </section>
                 ))}
             </div>
-            </>
+            </div>
         )
     }
 

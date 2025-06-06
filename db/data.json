@@ -147,40 +147,144 @@
     {
       "name": "task nr 2",
       "id": 19,
-      "time": 8,
-      "isRunning": true,
-      "isDone": false,
-      "isRemoved": false
+      "time": 165,
+      "isRunning": false,
+      "isDone": true,
+      "isRemoved": true
     },
     {
       "name": "task nr 3",
       "id": 20,
+      "time": 159,
+      "isRunning": false,
+      "isDone": true,
+      "isRemoved": true
+    },
+    {
+      "name": "task nr 4",
+      "id": 21,
+      "time": 159,
+      "isRunning": false,
+      "isDone": true,
+      "isRemoved": true
+    },
+    {
+      "name": "task nr 5",
+      "id": 22,
+      "time": 160,
+      "isRunning": false,
+      "isDone": true,
+      "isRemoved": true
+    },
+    {
+      "name": "task nr 6",
+      "id": 23,
+      "time": 163,
+      "isRunning": false,
+      "isDone": true,
+      "isRemoved": true
+    },
+    {
+      "name": "task nr 1",
+      "id": 24,
+      "time": 29,
+      "isRunning": false,
+      "isDone": true,
+      "isRemoved": true
+    },
+    {
+      "name": "task nr 1",
+      "id": 25,
+      "time": 1640,
+      "isRunning": false,
+      "isDone": true,
+      "isRemoved": true
+    },
+    {
+      "name": "task nr 2",
+      "id": 26,
+      "time": 1745,
+      "isRunning": false,
+      "isDone": true,
+      "isRemoved": true
+    },
+    {
+      "name": "task nr 3",
+      "id": 27,
       "time": 0,
-      "isRunning": true,
+      "isRunning": false,
       "isDone": false,
       "isRemoved": false
     },
     {
       "name": "task nr 4",
-      "id": 21,
+      "id": 28,
       "time": 0,
-      "isRunning": true,
+      "isRunning": false,
       "isDone": false,
       "isRemoved": false
     },
     {
       "name": "task nr 5",
-      "id": 22,
+      "id": 29,
       "time": 0,
-      "isRunning": true,
+      "isRunning": false,
       "isDone": false,
       "isRemoved": false
     },
     {
-      "name": "task nr 6",
-      "id": 23,
+      "name": "",
+      "id": 30,
       "time": 0,
-      "isRunning": true,
+      "isRunning": false,
+      "isDone": true,
+      "isRemoved": true
+    },
+    {
+      "name": "",
+      "id": 31,
+      "time": 0,
+      "isRunning": false,
+      "isDone": true,
+      "isRemoved": true
+    },
+    {
+      "name": "",
+      "id": 32,
+      "time": 0,
+      "isRunning": false,
+      "isDone": true,
+      "isRemoved": true
+    },
+    {
+      "name": "",
+      "id": 33,
+      "time": 0,
+      "isRunning": false,
+      "isDone": true,
+      "isRemoved": true
+    },
+    {
+      "name": "",
+      "id": 34,
+      "time": 0,
+      "isRunning": false,
+      "isDone": true,
+      "isRemoved": true
+    },
+    {
+      "name": "",
+      "id": 35,
+      "time": 0,
+      "isRunning": false,
+      "isDone": true,
+      "isRemoved": true
+    },
+    {
+      "name": "task nr 6",
+      "id": 36,
+      "time": 0,
+      "isRunning": false,
       "isDone": false,
       "isRemoved": false
     }
