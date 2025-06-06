@@ -56,48 +56,51 @@ class TasksManager extends React.Component {
 
         return (
             <div className='tasks-manager__container'>
-            <h1 className='tasks-manager__title' onClick={ this.onClick }>Tasks Manager</h1>
-            <form className='tasks-manager__form' onSubmit={this.submitHandler}>
-                <input
-                    className='tasks-manager__input'
-                    name='newTask'
-                    value={this.state.newTask}
-                    onChange={this.inputChangeHandler}
-                    placeholder='New task name' 
-                />
+                <h1 className='tasks-manager__title' onClick={ this.onClick }>Tasks Manager</h1>
+                <form className='tasks-manager__form' onSubmit={this.submitHandler}>
+                    <input
+                        className='tasks-manager__input'
+                        name='newTask'
+                        value={this.state.newTask}
+                        onChange={this.inputChangeHandler}
+                        placeholder='New task name' 
+                    />
                 <button className='tasks-manager__button' type='submit'>Add task</button>
-            </form>
+                </form>
 
-            <div>
-                {visibleTasks.map(task => (
-                    <section className='task'>
-                        <header className='task__header'>
-                            <span>{ task.name }</span>
-                            <span className='task__time'>{ this.convertSecondsToTime(task.time) }</span>
-                        </header>
-                        <footer className='task__footer'>
-                            <button 
-                                className='task__button'
-                                onClick={() => this.startStopHandler(task.id)}
-                                disabled={task.isDone}
-                            >
-                                { task.isRunning ? 'stop' : 'start' }</button>
-                            <button 
-                                className='task__button'
-                                onClick={() => this.taskFinishedHandler(task.id)}
-                                disabled={task.isDone}
-                            >
-                                finished</button>
-                            <button 
-                                className='task__button'
-                                onClick={() => this.taskRemoveHandler(task.id)}
-                                disabled={!task.isDone}
-                            >
-                                delate</button>
-                        </footer>
-                    </section>
-                ))}
-            </div>
+                <div>
+                    {visibleTasks.map(task => (
+                        <section className='task'>
+                            <header className='task__header'>
+                                <span>{ task.name }</span>
+                             <span className='task__time'>{ this.convertSecondsToTime(task.time) }</span>
+                            </header>
+                            <footer className='task__footer'>
+                                <button 
+                                    className='task__button'
+                                    onClick={() => this.startStopHandler(task.id)}
+                                 disabled={task.isDone}
+                                >
+                                    { task.isRunning ? 'stop' : 'start' }
+                                </button>
+                                <button 
+                                    className='task__button'
+                                    onClick={() => this.taskFinishedHandler(task.id)}
+                                    disabled={task.isDone}
+                                >
+                                    finished
+                                </button>
+                                <button 
+                                    className='task__button'
+                                    onClick={() => this.taskRemoveHandler(task.id)}
+                                    disabled={!task.isDone}
+                                >
+                                    delate
+                                </button>
+                            </footer>
+                        </section>
+                    ))}
+                </div>
             </div>
         )
     }
@@ -166,7 +169,6 @@ class TasksManager extends React.Component {
         } 
     }
     
-
     convertSecondsToTime(seconds) {
         const hours = Math.floor(seconds / 3600)
         const minutes = Math.floor((seconds - (hours * 3600)) / 60)
